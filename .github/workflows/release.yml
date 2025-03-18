@@ -127,7 +127,7 @@ jobs:
           python -m pip install uv
           uv venv .venv
           source .venv/bin/activate
-          python -m pip install maturin tomli
+          uv pip install maturin tomli
           
       - name: Update version
         shell: bash
