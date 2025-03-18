@@ -36,7 +36,7 @@ jobs:
       run: |
         # Activate virtual environment (platform-specific)
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          .venv\Scripts\activate.bat && uv pip install maturin tomli && maturin develop --release
+          source .venv/Scripts/activate && uv pip install maturin tomli && maturin develop --release
         else
           source .venv/bin/activate && uv pip install maturin tomli && maturin develop --release
         fi
@@ -45,7 +45,7 @@ jobs:
       run: |
         # Activate virtual environment (platform-specific)
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          .venv\Scripts\activate.bat && python tests/test_import.py
+          source .venv/Scripts/activate && python tests/test_import.py
         else
           source .venv/bin/activate && python tests/test_import.py
         fi
