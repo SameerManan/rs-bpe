@@ -45,9 +45,9 @@ jobs:
       run: |
         # Activate virtual environment (platform-specific)
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          .venv\Scripts\activate.bat && python tests/test_imports.py
+          .venv\Scripts\activate.bat && python tests/test_import.py
         else
-          source .venv/bin/activate && python tests/test_imports.py
+          source .venv/bin/activate && python tests/test_import.py
         fi
       shell: bash
 
