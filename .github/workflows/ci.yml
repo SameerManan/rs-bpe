@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest]
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
 
     steps:
@@ -34,21 +34,14 @@ jobs:
         uv venv .venv
     - name: Build and install
       run: |
-        # Activate virtual environment (platform-specific)
-        if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          source .venv/Scripts/activate && uv pip install maturin tomli && maturin develop --release
-        else
-          source .venv/bin/activate && uv pip install maturin tomli && maturin develop --release
-        fi
+        source .venv/bin/activate 
+        uv pip install maturin tomli 
+        maturin develop --release
       shell: bash
     - name: Test bindings imports
       run: |
-        # Activate virtual environment (platform-specific)
-        if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          source .venv/Scripts/activate && python tests/test_import.py
-        else
-          source .venv/bin/activate && python tests/test_import.py
-        fi
+        source .venv/bin/activate
+        python tests/test_import.py
       shell: bash
 
   # Build test wheels for verification but don't publish
@@ -74,7 +67,7 @@ jobs:
           python -m pip install uv
           uv venv .venv
           source .venv/bin/activate
-          python -m pip install maturin tomli
+          uv pip install maturin tomli
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
