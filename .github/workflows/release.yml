@@ -47,19 +47,42 @@ jobs:
         echo "version=$VERSION" >> $GITHUB_OUTPUT
         echo "Version: $VERSION"
 
-    - name: Install dependencies
+    - name: Install UV and dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install maturin tomli
+        python -m pip install uv
+        uv venv .venv
+
+    - name: Activate virtual environment and install dependencies
+      shell: bash
+      run: |
+        if [ "${{ matrix.os }}" == "windows-latest" ]; then
+          . .venv\Scripts\activate
+        else
+          source .venv/bin/activate
+        fi
+        python -m pip install maturin tomli
 
     - name: Update version
+      shell: bash
       run: |
+        if [ "${{ matrix.os }}" == "windows-latest" ]; then
+          . .venv\Scripts\activate
+        else
+          source .venv/bin/activate
+        fi
         python sync_version.py --set ${{ steps.extract_version.outputs.version }}
 
     - name: Build wheels
       env:
         VERSION: ${{ steps.extract_version.outputs.version }}
+      shell: bash
       run: |
+        if [ "${{ matrix.os }}" == "windows-latest" ]; then
+          . .venv\Scripts\activate
+        else
+          source .venv/bin/activate
+        fi
         maturin build --release --out dist
       
     - name: Build universal2 wheels (macOS only)
@@ -67,7 +90,9 @@ jobs:
       env:
         VERSION: ${{ steps.extract_version.outputs.version }}
         MACOSX_DEPLOYMENT_TARGET: "10.14"
+      shell: bash
       run: |
+        source .venv/bin/activate
         # On macOS, build universal2 wheels (x86_64 + arm64)
         maturin build --release --universal2 --out dist
 
@@ -96,19 +121,26 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Version: $VERSION"
           
-      - name: Install dependencies
+      - name: Install UV and dependencies
         run: |
           python -m pip install --upgrade pip
+          python -m pip install uv
+          uv venv .venv
+          source .venv/bin/activate
           python -m pip install maturin tomli
           
       - name: Update version
+        shell: bash
         run: |
+          source .venv/bin/activate
           python sync_version.py --set ${{ steps.extract_version.outputs.version }}
           
       - name: Build sdist
         env:
           VERSION: ${{ steps.extract_version.outputs.version }}
+        shell: bash
         run: |
+          source .venv/bin/activate
           maturin sdist --out dist
           
       - name: Upload sdist
