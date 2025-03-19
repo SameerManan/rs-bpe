@@ -1,4 +1,4 @@
-[![Build](https://github.com/gweidart/rs-bpe/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/gweidart/rs-bpe/actions/workflows/ci.yml) &nbsp; [![Release](https://github.com/gweidart/rs-bpe/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/gweidart/rs-bpe/actions/workflows/release.yml)
+[![Build](https://github.com/gweidart/rs-bpe/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/gweidart/rs-bpe/actions/workflows/ci.yml) &nbsp; [![GH Release](https://github.com/gweidart/rs-bpe/actions/workflows/gh_release.yml/badge.svg?branch=main)](https://github.com/gweidart/rs-bpe/actions/workflows/gh_release.yml) &nbsp; [![PyPI Release](https://github.com/gweidart/rs-bpe/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/gweidart/rs-bpe/actions/workflows/release.yml)
 
 The main purpose of this library is to provide fast and correct token counting for chunking algorithms with a focus on high performance. It implements novel algorithms for BPE tokenization that are both correct and significantly faster than existing solutions.
 
