@@ -228,13 +228,15 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
     steps:
-      - uses: actions/download-artifact@v4
+      - name: Download all wheel artifacts
+        uses: actions/download-artifact@v4
         with:
           pattern: wheels-*
           path: dist
           merge-multiple: true
           
-      - uses: actions/download-artifact@v4
+      - name: Download sdist artifact
+        uses: actions/download-artifact@v4
         with:
           name: sdist
           path: dist
@@ -242,12 +244,33 @@ jobs:
       - name: List files to be published
         run: |
           ls -la dist/
+          echo "Number of wheel files: $(find dist/ -name "*.whl" | wc -l)"
+          echo "Number of sdist files: $(find dist/ -name "*.tar.gz" | wc -l)"
+          echo "Total files to publish: $(find dist/ -type f | wc -l)"
+          
+      - name: Wheel details
+        run: |
+          echo "=== Wheel Details ==="
+          for wheel in dist/*.whl; do
+            echo "Wheel: $(basename $wheel)"
+            # Extract platform tag
+            platform=$(basename $wheel | cut -d'-' -f4)
+            echo "  Platform: $platform"
+          done
+          
+      - name: Verify artifacts exist
+        run: |
+          if [ ! -d "dist" ] || [ -z "$(ls -A dist)" ]; then
+            echo "::error::No distribution files found in dist/ directory"
+            exit 1
+          fi
           
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
           packages-dir: dist/
+          verbose: true
+          skip-existing: false
 
   publish-github:
     name: Create GitHub Release
