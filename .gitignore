@@ -29,53 +29,9 @@ release/
 .venv
 .pytest_cache
 __pycache__
- ".venv/",
-    "site_packages/",
-    "env/",
-    "node_modules/",
-    ".cursor",
-    "__pycache__/",
-    "*.pyc",
-    "*.pyo",
-    "*.egg-info/",
-    ".pytest_cache/",
-    ".mypy_cache/",
-    ".ruff_cache/",
-    ".venv/",
-    "venv/",
-    "dist/",
-    "build/",
-    "node_modules/",
-    "**/node_modules/**",
-    ".git/",
-    ".github/",
-    ".vscode/",
-    ".idea/",
-    "*.log",
-    "*.bak",
-    "*.tmp",
-    "*.swp",
-    "*.DS_Store",
-    "*.env",
-    "*.secrets.yaml",
-    "*.secrets.yml",
-    "docs/",
-    "build/",
-    "dist/",
-    "*.pdf",
-    "*.zip",
-    "*.tar.gz",
-    "*.tar.bz2",
-    "**/test_*.py",
-    "**/tests/*",
-    "**/fixtures/*",
-    "**/config/*",
-    "**/conf/*",
-
 # Rust build artifacts
 /target
 **/*.rs.bk
-Cargo.lock
 *.so
 *.pyd
 *.dll
