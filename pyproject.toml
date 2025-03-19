@@ -137,8 +137,6 @@ sdist-include = ["LICENSE", "README.md"]
 # Optimize for python 3.8+ compatibility (abi3)
 # This allows a single wheel to be compatible with multiple Python versions
 python-packages = ["rs_bpe"]
-# Whether to compile for manylinux compatibility. Options: "off", "manylinux2010", "manylinux2014", etc.
-manylinux = "manylinux_2_34"
 # Whether to build universal2 wheels for macOS (both x86_64 and arm64)
 universal2 = true
 
