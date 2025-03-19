@@ -73,4 +73,4 @@ jobs:
         with:
           target: ${{ matrix.target }}
           manylinux: '2014'
-          args: --release --out dist --compatibility manylinux2014 --interpreter ${{ matrix.python-version }}
+          args: --release --out dist --interpreter ${{ matrix.python-version }}
