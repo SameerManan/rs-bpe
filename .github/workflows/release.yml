@@ -37,11 +37,11 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Install Rust
-      uses: dtolnay/rust-toolchain@stable
-      with:
-        toolchain: stable
-        targets: ${{ matrix.target }}
+    - name: Install Rust toolchain
+      run: |
+        curl --proto '=https' --tlsv1.2 --retry 10 --retry-connrefused --location --silent --show-error --fail "https://sh.rustup.rs" | sh -s -- --default-toolchain stable -y
+        source $HOME/.cargo/env
+        rustup target add ${{ matrix.target }}
 
     - name: Extract version from tag
       id: extract_version
