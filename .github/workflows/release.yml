@@ -76,7 +76,7 @@ jobs:
       shell: bash
       run: |
         source .venv/bin/activate
-        python sync_version.py --set ${{ steps.extract_version.outputs.version }}
+        python scripts/sync_version.py --set ${{ steps.extract_version.outputs.version }}
 
     - name: Build wheels
       env:
