@@ -42,9 +42,6 @@ jobs:
             interpreter: 3.10 3.11 3.12 3.13 pypy3.10
           - os: ubuntu
             platform: linux
-            target: i686
-          - os: ubuntu
-            platform: linux
             target: aarch64
           - os: ubuntu
             platform: linux
@@ -70,6 +67,11 @@ jobs:
         exclude:
           - os: windows
             target: aarch64
+          # Exclude i686 Linux target due to build failures in bpe-openai
+          - os: ubuntu
+            platform: linux
+            target: i686
+            manylinux: auto
 
     runs-on: ${{ matrix.os }}-latest
     steps:
