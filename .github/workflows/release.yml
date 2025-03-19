@@ -67,11 +67,9 @@ jobs:
         exclude:
           - os: windows
             target: aarch64
-          # Exclude i686 Linux target due to build failures in bpe-openai
+          # Exclude Linux i686 target due to build failures in bpe-openai
           - os: ubuntu
-            platform: linux
             target: i686
-            manylinux: auto
 
     runs-on: ${{ matrix.os }}-latest
     steps:
