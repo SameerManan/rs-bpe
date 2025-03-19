@@ -120,6 +120,8 @@ Documentation = "https://github.com/gweidart/rs-bpe#readme"
 "Bug Tracker" = "https://github.com/gweidart/rs-bpe/issues"
 
 [tool.maturin]
+profile = "release"
+bindings = "pyo3"
 # Python extension module features
 features = ["pyo3/extension-module"]
 # Name of the module to be built
@@ -139,6 +141,10 @@ python-packages = ["rs_bpe"]
 manylinux = "manylinux_2_34"
 # Whether to build universal2 wheels for macOS (both x86_64 and arm64)
 universal2 = true
+
+[tool.maturin.target.x86_64-apple-darwin]
+# macOS deployment target SDK version
+macos-deployment-target = "13.0"
 
 # Configure linters and type checkers
 [tool.mypy]
