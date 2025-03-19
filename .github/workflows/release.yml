@@ -255,9 +255,5 @@ jobs:
           body: "${{ steps.extract_info.outputs.changelog }}"
           files: artifacts/*
           fail_on_unmatched_files: true
-<<<<<<< HEAD
-          generate_release_notes: true 
-=======
           generate_release_notes: true
           tag_name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.version_tag || github.ref_name }} 
->>>>>>> 0b0ca0d (added necessary manual trigger to release workflow.)
